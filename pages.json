@@ -1,0 +1,117 @@
+{
+	"easycom": {
+		"^cgc-(.*)": "@/cgc-ui/components/cgc-$1/cgc-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+            "path" : "pages/example/components",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "组件",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/example/js",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "工具",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentB/modelItem",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "模块列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentC/modal",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "模态框",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentA/color",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "色彩",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentA/button",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "按钮",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentA/image",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图片",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentA/badge",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "徽标数",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentD/form",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "表单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTitleText": "cgc移动端规范",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"navigationBarTextStyle": "black",
+		"navigationStyle":"custom",
+		"app-plus": {
+			"bounce": "none"
+		}
+	},
+	"tabBar": {
+		"color": "#909399",
+		"selectedColor": "#303133",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"list": [{
+				"pagePath": "pages/example/components",
+				"iconPath": "/static/components.png",
+				"selectedIconPath": "/static/components-active.png",
+				"text": "组件"
+			},
+			{
+				"pagePath": "pages/example/js",
+				"iconPath": "/static/js.png",
+				"selectedIconPath": "/static/js-active.png",
+				"text": "工具"
+			}
+		]
+	}
+}

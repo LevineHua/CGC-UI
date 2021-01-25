@@ -1,0 +1,241 @@
+image {
+	height: auto;
+	display: block;
+}
+view,text{
+	line-height: 1;
+}
+view,scroll-view,image,input,text {
+	font-weight: 400;
+	box-sizing: border-box;
+	font-family:Monospaced Number, Chinese Quote, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Arial,"PingFang SC", "Noto Sans", "Noto Sans CJK SC", "思源黑体","Source Han Sans CN", system-ui, "Hiragino Sans GB", "Microsoft YaHei UI","Microsoft YaHei", sans-serif;
+}
+.cgc-page{
+	min-height: 100vh;
+	height: auto;
+}
+
+.cgc-relative,
+.cgc-rela {
+	position: relative;
+}
+
+.cgc-absolute,
+.cgc-abso {
+	position: absolute;
+}
+
+.cgc-title-xxxs {
+	font-size: 20rpx;
+}
+.cgc-title-xxs {
+	font-size: 22rpx;
+}
+.cgc-title-xs {
+	font-size: 24rpx;
+}
+.cgc-title-sm {
+	font-size: 26rpx;
+}
+.cgc-font-md {
+	font-size: 28rpx;
+}
+.cgc-title-lg {
+	font-size: 30rpx;
+}
+.cgc-title-xl {
+	font-size: 32rpx;
+}
+.cgc-title-xxl {
+	font-size: 36rpx;
+}
+
+.cgc-font-weight-bold {
+	font-weight: 500;
+}
+
+.cgc-line-height{
+	line-height: 1.5;
+}
+
+.cgc-flex {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: row;
+	align-items: center;
+}
+
+.cgc-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.cgc-flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+.cgc-col-center {
+	align-items: center;
+}
+
+.cgc-col-top {
+	align-items: flex-start;
+}
+
+.cgc-col-bottom {
+	align-items: flex-end;
+}
+
+.cgc-row-center {
+	justify-content: center;
+}
+
+.cgc-row-left {
+	justify-content: flex-start;
+}
+
+.cgc-row-right {
+	justify-content: flex-end;
+}
+
+.cgc-row-between {
+	justify-content: space-between;
+}
+
+.cgc-row-around {
+	justify-content: space-around;
+}
+
+.cgc-text-left {
+	text-align: left;
+}
+
+.cgc-text-center {
+	text-align: center;
+}
+
+.cgc-text-right {
+	text-align: right;
+}
+
+.cgc-flex-col {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: column;
+}
+// 定义flex等分
+@for $i from 0 through 12 {
+	.cgc-flex-#{$i} {
+		flex: $i;
+	}
+}
+
+.cgc-border-radius-large{
+	border-radius: 50rpx;
+}
+.cgc-border-radius-middle{
+	border-radius: 20rpx;
+}
+.cgc-border-radius-small{
+	border-radius: 10rpx;
+}
+.cgc-border-radius-circular{
+	border-radius: 50%;
+}
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.cgc-margin-#{$i}, .cgc-m-#{$i} {
+			margin: $i + rpx;
+		}
+		
+		// 得出：u-padding-30或者u-p-30
+		.cgc-padding-#{$i}, .cgc-p-#{$i} {
+			padding: $i + rpx;
+		}
+		
+		@each $short, $long in l left, t top, r right, b bottom {
+			// 缩写版，结果如： u-m-l-30
+			// 定义外边距
+			.cgc-m-#{$short}-#{$i} {
+				margin-#{$long}: $i + rpx;
+			}
+			// 负外边距
+			.cgc-m-minus-#{$short}-#{$i} {
+				margin-#{$long}: - + $i + rpx;
+			}
+			
+			// 定义内边距
+			.cgc-p-#{$short}-#{$i} {
+				padding-#{$long}: $i + rpx;
+			}
+			
+			// 完整版，结果如：u-margin-left-30
+			// 定义外边距
+			.cgc-margin-#{$long}-#{$i} {
+				margin-#{$long}: $i + rpx;
+			}
+			// 负外边距
+			.cgc-margin-minus-#{$long}-#{$i} {
+				margin-#{$long}: - + $i + rpx;
+			}
+			
+			// 定义内边距
+			.cgc-padding-#{$long}-#{$i} {
+				padding-#{$long}: $i + rpx;
+			}
+		}
+	}
+}
+
+// 1:1容器
+@for $i from 0 to 750 {
+	.cgc-w-h-#{$i} {
+		width: $i + rpx;
+		height: $i + rpx;
+	}
+	.cgc-w-#{$i} {
+		width: $i + rpx;
+	}
+	.cgc-h-#{$i} {
+		height: $i + rpx;
+	}
+	// 最小宽度，高度
+	.cgc-min-w-#{$i} {
+		min-width: $i + rpx;
+	}
+	.cgc-min-h-#{$i} {
+		min-height: $i + rpx;
+	}
+	// 最大宽度，高度
+	.cgc-max-w-#{$i} {
+		min-width: $i + rpx;
+	}
+	.cgc-max-h-#{$i} {
+		min-height: $i + rpx;
+	}
+}
+
+.cgc-single-line {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 1.1;
+}
+@mixin cgc-n-line($n) {
+	line-height: 1.5;
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $n;
+	line-clamp: $n;
+	-webkit-box-orient: vertical;
+}
+.cgc-double-line {
+	@include cgc-n-line(2);
+}

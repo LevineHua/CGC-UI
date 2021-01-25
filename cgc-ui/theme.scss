@@ -1,0 +1,70 @@
+// --------------------------------------纯色
+// 主色调
+$cgc-primary: #FF6A00;
+// 主色调-中
+$cgc-primary-dark: #FDD3A1;
+// 主色调-浅
+$cgc-primary-light: #FFFBF4;
+
+// 蓝色
+$cgc-blue: #4A545F;
+// 蓝色-中
+$cgc-blue-dark: #ABBBFF;
+// 蓝色-浅
+$cgc-blue-light: #EEF1FF;
+
+// 绿色
+$cgc-green: #00C657;
+// 绿色-中
+$cgc-green-dark: #9BE6BC;
+// 绿色-浅
+$cgc-green-light: #E6F5EA;
+
+// 红色
+$cgc-red: #FF5B4C;
+// 红色-中
+$cgc-red-dark: #FFB6AA;
+// 红色-浅
+$cgc-red-light: #FFF1EF;
+
+// 黑色
+$cgc-black: #202123;
+// 黑色-中
+$cgc-black-dark: #9EA6B1;
+// 黑色-浅
+$cgc-black-light: #E1E7ED;
+
+// 黑色
+$cgc-black-warm: #432F1E;
+// 黑色-中
+$cgc-black-warm-dark: #A35900;
+// 黑色-浅
+$cgc-black-warm-light: #FFFBF4;
+
+
+// --------------------------------------渐变色
+// 辉黄色渐变
+$cgc-linear-gradient-yellow: linear-gradient(135deg, #FFE8A3 0%, #FFC752 100%);
+// 赤橙色渐变
+$cgc-linear-gradient-orange: linear-gradient(135deg, #FFA951 0%, #FF7208 100%);
+// 樱红色渐变
+$cgc-linear-gradient-red: linear-gradient(315deg, #FE5B4F 0%, #FF9D74 100%, #000000 100%, #000000 100%);
+// 标签颜色
+$cgc-linear-gradient-pink: linear-gradient(135deg, #F7A5A3 0%, #DF6F6A 100%);
+// 亮银色渐变
+$cgc-linear-gradient-silvery: linear-gradient(135deg, #DCE9ED 0%, #BDCCD1 100%);
+// 蔚蓝色渐变
+$cgc-linear-gradient-blue: linear-gradient(315deg, #3C6EFF 0%, #6DCDFF 100%);
+// 普蓝色渐变
+$cgc-linear-gradient-blue-dark: linear-gradient(135deg, #94B9FF 0%, #4B8EFF 100%);
+
+
+// --------------------------------------其它
+// 背景色
+$cgc-white: #FFFFFF;
+// 页面背景
+$cgc-default-bg: #F4F4F6;
+// 分割背景颜色
+$cgc-border-color: #E9E9E9;
+// 卡片投影颜色
+$cgc-item-box-shadow: 0rpx 20rpx 60rpx rgba(16, 23, 50, 0.08);

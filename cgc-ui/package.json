@@ -1,0 +1,11 @@
+{
+  "name": "cgc-ui",
+  "version": "1.0.0",
+  "description": "cgc UI,是CGC移动端项目基于uni-app的UI框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Levine Hua",
+  "license": "ISC"
+}
