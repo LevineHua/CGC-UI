@@ -1,6 +1,21 @@
 import emitter from './libs/mixins/emitter.js'
+
+// function
+// 获取父组件
+import $parent from './libs/function/$parent.js'
+
+const $cgc = {
+	$parent
+}
+
 const install = Vue => {
 	Vue.mixin(emitter)
+	
+	Vue.prototype.$cgc = $cgc
+	
+	/**
+	 * 获取header公共参数
+	 */
 	let system = uni.getSystemInfoSync()
 	if (system.platform == 'android') {
 		Vue.prototype.isAndroid = true;

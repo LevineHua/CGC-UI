@@ -1,8 +1,12 @@
 <template>
-	<view class="cgc-form-item" :class="[(label || $slots.label) ? 'cgc-p-l-40': 'cgc-p-l-30 cgc-p-r-30']">
-		<view class="cgc-form-item__main cgc-flex cgc-col-top cgc-p-t-40 cgc-p-b-40 cgc-rela">
+	<view class="cgc-form-item cgc-p-l-30" :class="[(label || $slots.label) ? '': 'cgc-p-r-30']">
+		<view class="cgc-form-item__main cgc-flex cgc-col-top cgc-rela" :class="mainClass">
 			<!-- prop和slot二选一，prop优先 -->
-			<view class="cgc-form-item__label cgc-flex cgc-font-md cgc-black cgc-m-t-8" v-if="label || $slots.label" :style="[{width: labelWidth}]">
+			<view 
+				class="cgc-form-item__label cgc-flex cgc-font-md cgc-black cgc-m-t-8" 
+				v-if="(label || $slots.label) && inputType!='textarea'" 
+				:style="[{width: labelWidth}]"
+			>
 				<template v-if="label">
 					{{label}}
 				</template>
@@ -19,8 +23,10 @@
 					</template>
 				</view>
 			</view>
-			<view class="cgc-form-item__body cgc-flex-1" :class="[(label || $slots.label) ? 'cgc-p-l-30': '']">
+			<view class="cgc-form-item__body cgc-flex-1" :class="[((label || $slots.label) && inputType!='textarea') ? 'cgc-p-l-30': '']">
+				<!-- <view class="cgc-flex cgc-row-right"> -->
 				<slot></slot>
+				<!-- </view> -->
 				<transition name="fade">
 					<view v-if="error" class="cgc-flex cgc-black-dark cgc-title-xs cgc-m-t-16">
 						<image src="/static/cgc-ui/danger.png" class="cgc-w-h-24 cgc-m-r-6"></image>
@@ -120,6 +126,7 @@
 				showTip: false,
 				// 错误信息
 				error: '',
+				inputType: ''
 			}
 		},
 		computed:{
@@ -128,6 +135,14 @@
 					return '0 30rpx 0 0'
 				} else {
 					return '0'
+				}
+			},
+			mainClass() {
+				// console.log(this.$slots.default)
+				if(this.inputType==='textarea') {
+					return 'cgc-p-t-30 cgc-p-b-30'
+				} else {
+					return 'cgc-p-t-40 cgc-p-b-40'
 				}
 			}
 		},
@@ -141,6 +156,11 @@
 			this.$on('cgc.form.blur', (value) => {
 				this.validate()
 			});
+			this.$on('cgc.form.item.addField', (field) => {
+				if(field) {
+					this.inputType = field.inputType
+				}
+			})
 		},
 		methods:{
 			/**

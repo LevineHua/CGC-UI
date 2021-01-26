@@ -21,8 +21,48 @@
 					</cgc-form-item>
 				</view>
 				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
-					<cgc-form-item>
-						<cgc-input v-model="ruleForm.username" placeholder="请输入简介" inputType="textarea"></cgc-input>
+					<cgc-form-item prop="content">
+						<cgc-input v-model="ruleForm.content" :clearShowTip="true" @clear="clear" textareaLabel="简介" placeholder="请输入简介" inputType="textarea"></cgc-input>
+					</cgc-form-item>
+				</view>
+				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
+					<cgc-form-item label="设为默认">
+						<cgc-switch slot="right" v-model="ruleForm.isDefault"></cgc-switch>
+					</cgc-form-item>
+				</view>
+				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
+					<cgc-form-item label="选中">
+						<cgc-radio slot="right" v-model="ruleForm.radio" label="1"></cgc-radio>
+					</cgc-form-item>
+					<cgc-form-item label="未选中">
+						<cgc-radio slot="right" v-model="ruleForm.radio" label="2"></cgc-radio>
+					</cgc-form-item>
+				</view>
+				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
+					<cgc-radio-group v-model="ruleForm.fruits" @change="radioGroupChange">
+						<cgc-form-item :label="item" v-for="item in radioList" :key="item">
+							<cgc-radio slot="right" :label="item"></cgc-radio>
+						</cgc-form-item>
+					</cgc-radio-group>
+				</view>
+				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
+					<cgc-form-item label="选中">
+						<cgc-checkbox slot="right" v-model="ruleForm.checked1" label="1"></cgc-checkbox>
+					</cgc-form-item>
+					<cgc-form-item label="未选中">
+						<cgc-checkbox slot="right" v-model="ruleForm.checked2" label="2"></cgc-checkbox>
+					</cgc-form-item>
+				</view>
+				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
+					<cgc-checkbox-group v-model="ruleForm.likes" @change="checkGroupChange">
+						<cgc-form-item :label="item" v-for="item in radioList" :key="item">
+							<cgc-checkbox slot="right" :label="item"></cgc-checkbox>
+						</cgc-form-item>
+					</cgc-checkbox-group>
+				</view>
+				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
+					<cgc-form-item label="计步器" prop="stepper">
+						<cgc-stepper v-model="ruleForm.stepper"></cgc-stepper>
 					</cgc-form-item>
 				</view>
 				<cgc-button @click="submit('cgcForm')">提交</cgc-button>
@@ -50,6 +90,13 @@
 				
 			</cgc-form>
 		</view>
+		<cgc-modal
+			ref="clear" 
+			icon="/static/popup-tip.png" 
+			title="是否清空当前输入内容" 
+			subtitle="清空后无法恢复"
+			@confirm="clearContent"
+		></cgc-modal>
 	</view>
 </template>
 
@@ -60,7 +107,16 @@
 				ruleForm: {
 					username: '',
 					password: '',
-					gender: ''
+					gender: '',
+					content: '',
+					isDefault: false,
+					radio: 1,
+					fruits: '',
+					checked: 1,
+					checked1: '',
+					checked2: '',
+					likes: [],
+					stepper: 1
 				},
 				rules: {
 					username: [
@@ -71,16 +127,43 @@
 						{ required: true, message: '请输入密码'}
 					],
 					gender: [
-						{ required: true, message: '请选择性别'}
+						{ required: false, message: '请选择性别'}
 					],
-				}
+					content: [
+						{ required: true, message: '请输入简介'}
+					],
+				},
+				radioList: [
+					"苹果",
+					"西瓜",
+					"草莓",
+					"菠萝",
+					"橘子",
+				]
 			}
 		},
 		methods: {
 			submit(formName) {
 				this.$refs[formName].validate((valids) => {
 					console.log(valids)
+					if(valids) {
+						console.log(this.ruleForm)
+					}
 				})
+			},
+			clear() {
+				this.$nextTick(() => {
+					this.$refs['clear'].open()
+				})
+			},
+			clearContent() {
+				this.ruleForm.content = ''
+			},
+			radioGroupChange(e) {
+				console.log(e)
+			},
+			checkGroupChange(e) {
+				console.log(e)
 			}
 		}
 	}

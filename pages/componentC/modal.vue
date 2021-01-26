@@ -30,14 +30,14 @@
 		<!-- 系统对话框 -->
 		<cgc-modal 
 			ref="modal1" 
-			icon="/static/cgc-ui/danger.png" 
+			icon="/static/popup-tip.png" 
 			title="温馨提示对话框" 
 			subtitle="可选内容说明"
 			modalBg="/static/cgc-ui/location-popup-bg.png"
 		></cgc-modal>
 		<cgc-modal
 			ref="modal2" 
-			icon="/static/cgc-ui/danger.png" 
+			icon="/static/popup-tip.png" 
 			title="温馨提示对话框" 
 			subtitle="可选内容说明"
 			cancelBtn='我知道了'

@@ -219,6 +219,12 @@ view,scroll-view,image,input,text {
 		min-height: $i + rpx;
 	}
 }
+.cgc-w-cover{
+	width: 100%;
+}
+.cgc-h-cover{
+	height: 100%;
+}
 
 .cgc-single-line {
 	overflow: hidden;

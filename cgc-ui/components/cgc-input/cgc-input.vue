@@ -1,36 +1,50 @@
 <template>
-	<view class="cgc-input cgc-flex">
+	<view class="cgc-input cgc-flex cgc-flex-1">
 		<template v-if="inputType==='textarea'">
-			<textarea 
-				class="cgc-black cgc-title-lg cgc-flex-1"
-				:value="value" 
-				:placeholder="placeholder" 
-				:placeholder-class="placeholderClass"
-				:placeholder-style="inputPlaceholderStyle"
-				:disabled="disabled"
-				:maxlength="maxlength"
-				:focus="focus"
-				:confirm-type="confirmType"
-				:auto-height="autoHeight"
-				:fixed="fixed"
-				:cursor-spacing="cursorSpacing"
-				:cursor="cursor"
-				:show-confirm-bar="showConfirmBar"
-				:selection-start="selectionStart"
-				:selection-end="selectionEnd"
-				:adjust-position="adjustPosition"
-				:hold-keyboard="holdKeyboard"
-				:disable-default-padding="disableDefaultPadding"
-				:auto-blur="autoBlur"
-				v-bind="$attrs"
-				:style="inputStyle"
-				@input="input"
-				@linechange="linechange"
-				@focus="focusEvent"
-				@blur="blur"
-				@confirm="confirm"
-				@keyboardheightchange="keyboardheightchange"
-			/>
+			<view class="cgc-w-cover">
+				<view class="cgc-flex cgc-row-between cgc-black cgc-font-md cgc-m-b-30 ">
+					{{textareaLabel}}
+					<view class="clean-btn" @click="clear" v-if="showClear">清空</view>
+				</view>
+				<textarea 
+					class="cgc-black cgc-title-lg cgc-flex-1 cgc-w-cover cgc-line-height"
+					:value="value" 
+					:placeholder="placeholder" 
+					:placeholder-class="placeholderClass"
+					:placeholder-style="inputPlaceholderStyle"
+					:disabled="disabled"
+					:maxlength="maxlength"
+					:focus="focus"
+					:confirm-type="confirmType"
+					:auto-height="autoHeight"
+					:fixed="fixed"
+					:cursor-spacing="cursorSpacing"
+					:cursor="cursor"
+					:show-confirm-bar="showConfirmBar"
+					:selection-start="selectionStart"
+					:selection-end="selectionEnd"
+					:adjust-position="adjustPosition"
+					:hold-keyboard="holdKeyboard"
+					:disable-default-padding="disableDefaultPadding"
+					:auto-blur="autoBlur"
+					v-bind="$attrs"
+					:style="inputStyle"
+					@input="input"
+					@linechange="linechange"
+					@focus="focusEvent"
+					@blur="blur"
+					@confirm="confirm"
+					@keyboardheightchange="keyboardheightchange"
+				/>
+				<view 
+					class="cgc-text-right cgc-title-xs cgc-black-dark cgc-m-t-20"
+					:style="[{
+						color: (value.length === maxlength) ? '#fd664c' : ''
+					}]"
+				>
+					{{value.length}}/{{maxlength}}
+				</view>
+			</view>
 		</template>
 		<template v-else>
 			<input
@@ -103,6 +117,24 @@
 					return 'input'
 				}
 			},
+			/**
+			 * 当输入框类型为textarea时生效
+			 */
+			textareaLabel: {
+				type: String,
+				default() {
+					return ''
+				}
+			},
+			/**
+			 * 清除数据前提示
+			 */
+			clearShowTip: {
+				type: Boolean,
+				default() {
+					return false
+				}
+			},
 			// 以下属性参考uniapp官方文档
 			value: {
 				type: [String, Number],
@@ -173,7 +205,7 @@
 			autoHeight: {
 				type: Boolean,
 				default() {
-					return false
+					return true
 				}
 			},
 			fixed: {
@@ -280,6 +312,9 @@
 				}
 			}
 		},
+		mounted() {
+			this.dispatch('cgcFormItem', 'cgc.form.item.addField', [this]);
+		},
 		watch:{
 			// 监听异常
 			"formItem.error"(val) {
@@ -296,7 +331,11 @@
 			 * 清空数据
 			 */
 			clear() {
-				this.$emit('input', '')
+				if(this.clearShowTip) {
+					this.$emit('clear')
+				} else {
+					this.$emit('input', '')
+				}
 			},
 			linechange(e) {
 				this.$emit('linechange', e)
@@ -313,7 +352,9 @@
 					this.focused = false
 				})
 				this.$emit("blur", e)
-				this.dispatch('cgcFormItem', 'cgc.form.blur', [this.value])
+				if(this.formItem.prop) {
+					this.dispatch('cgcFormItem', 'cgc.form.blur', [this.value])
+				}
 			},
 			confirm(e) {
 				this.$emit("confirm", e)
@@ -325,5 +366,8 @@
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
+	.clean-btn{
+		color: #636D8F;
+	}
 </style>
