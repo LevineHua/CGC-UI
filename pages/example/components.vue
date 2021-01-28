@@ -21,6 +21,18 @@
 			<cgc-item-body class="cgc-m-b-30">
 				<cgc-model-list-item @event="openPage('/pages/componentD/form')" image="" title="Form 表单"></cgc-model-list-item>
 			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/input')" image="" title="Input 输入框"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/select')" image="" title="Select 选择框"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/switch')" image="" title="Switch 切换开关"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/stepper')" image="" title="Stepper 计步器"></cgc-model-list-item>
+			</cgc-item-body>
 			<view class="cgc-black cgc-m-b-30">导航组件</view>
 			<cgc-item-body class="cgc-m-b-30">
 				<cgc-model-list-item @event="openPage('/pages/componentB/modelItem')" image="" title="ModelListItem 模块列表"></cgc-model-list-item>

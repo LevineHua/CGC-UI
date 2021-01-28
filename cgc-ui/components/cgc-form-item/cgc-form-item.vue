@@ -1,5 +1,5 @@
 <template>
-	<view class="cgc-form-item cgc-p-l-30" :class="[(label || $slots.label) ? '': 'cgc-p-r-30']">
+	<view class="cgc-form-item cgc-p-l-30" :class="[(label || $slots.label || inputType!='textarea') ? '': 'cgc-p-r-30']">
 		<view class="cgc-form-item__main cgc-flex cgc-col-top cgc-rela" :class="mainClass">
 			<!-- prop和slot二选一，prop优先 -->
 			<view 

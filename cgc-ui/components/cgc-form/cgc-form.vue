@@ -20,10 +20,10 @@
 			 * 表单数据对象
 			 */
 			model: {
-				required: true,
+				// required: true,
 				type: Object,
 				default() {
-					return ''
+					return null
 				}
 			},
 			/**

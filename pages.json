@@ -84,6 +84,42 @@
             }
             
         }
+        ,{
+            "path" : "pages/componentD/input",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "输入框",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentD/select",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "选择框",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentD/switch",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "切换开关",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentD/stepper",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "计步器",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "cgc移动端规范",

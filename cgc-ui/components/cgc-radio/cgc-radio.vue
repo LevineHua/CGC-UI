@@ -35,6 +35,15 @@
 			disabled: {
 				type: Boolean,
 				default: false
+			},
+			/**
+			 * 单选框类型
+			 *  - button：按钮形
+			 *  - default: 常规型
+			 */
+			type: {
+				type: String,
+				default: 'default'
 			}
 		},
 		data() {

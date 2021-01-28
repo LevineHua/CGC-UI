@@ -3,9 +3,12 @@ import emitter from './libs/mixins/emitter.js'
 // function
 // 获取父组件
 import $parent from './libs/function/$parent.js'
+// 校验
+import test from './libs/function/test.js'
 
 const $cgc = {
-	$parent
+	$parent,
+	test
 }
 
 const install = Vue => {
@@ -49,7 +52,7 @@ const install = Vue => {
 	Vue.prototype.systemName = plus.os.name
 	// #endif
 	
-	let modelmes = system.model;
+	let modelmes = system.model || '';
 	if(modelmes.indexOf('iPhone X')>=0||modelmes.indexOf('iPhone XR')>=0||modelmes.indexOf('iPhone XS')>=0||modelmes.indexOf('iPhone 12')>=0||modelmes.indexOf('iPhone 11')>=0||modelmes.indexOf('iPhone11')>=0||modelmes.indexOf('iPhone12')>=0||modelmes.indexOf('iPhoneXR')>=0||modelmes.indexOf('iPhoneX')>=0){
 		Vue.prototype.$is_bang = true
 	}else{
