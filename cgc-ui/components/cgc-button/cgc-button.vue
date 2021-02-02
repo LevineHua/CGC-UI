@@ -49,6 +49,7 @@
 			 * 	- 判断按钮：judge
 			 *  - 文字按钮-弱：text
 			 *  - 图标按钮：icon
+			 *  - 灰色按钮：gray
 			 */
 			type: {
 				default: () => {
@@ -248,6 +249,11 @@
 				width: 100%;
 				height: 100%;
 			}
+		}
+		&--gray {
+			color: $cgc-black!important;
+			background: $cgc-default-bg!important;
+			border: solid 0.5px $cgc-border-color;
 		}
 		&--main--disabled {
 			&::before{

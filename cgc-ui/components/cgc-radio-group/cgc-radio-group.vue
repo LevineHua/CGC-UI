@@ -14,6 +14,9 @@
 			}
 		},
 		created() {
+			this.$nextTick(() => {
+				this.broadcast('cgcRadio', 'valueChange', this.value)
+			})
 			this.$on("handleChange", (value) => {
 				this.$emit('input', value)
 				this.broadcast('cgcRadio', 'valueChange', value)

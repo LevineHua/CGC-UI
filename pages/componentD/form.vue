@@ -61,7 +61,7 @@
 					</cgc-checkbox-group>
 				</view>
 				<view class="cgc-border-radius-middle cgc-m-b-30 cgc-white-bg">
-					<cgc-form-item label="计步器" prop="stepper">
+					<cgc-form-item label="计步器">
 						<cgc-stepper slot="right" class="cgc-m-minus-r-10" @change="stepperChange" v-model="ruleForm.stepper"></cgc-stepper>
 					</cgc-form-item>
 				</view>

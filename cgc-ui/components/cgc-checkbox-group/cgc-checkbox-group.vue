@@ -14,6 +14,9 @@
 			}
 		},
 		created() {
+			this.$nextTick(() => {
+				this.broadcast('cgcCheckbox', 'checkboxChange', JSON.stringify(this.value))
+			})
 			this.$on("handleChange", (value) => {
 				let newValue = this.value
 				let index = this.value.indexOf(value)

@@ -15,6 +15,7 @@
 				<cgc-button class="button-item" type="judge" size="tag">文字标签</cgc-button>
 				<cgc-button class="button-item" :disabled="true" type="text" size="tag">文字标签</cgc-button>
 				<cgc-button class="button-item" icon="/static/message-icon.png" type="primary" size="tag">标签型</cgc-button>
+				<cgc-button class="button-item" type="gray" size="tag">标签型</cgc-button>
 			</view>
 			<view class="cgc-black cgc-m-b-30">超小型按钮</view>
 			<view class="button-demo cgc-flex cgc-row-left cgc-m-b-30 cgc-flex-wrap">
@@ -23,6 +24,7 @@
 				<cgc-button class="button-item" type="judge" size="superSmall">超小型</cgc-button>
 				<cgc-button class="button-item" type="text" size="superSmall">文字按钮</cgc-button>
 				<cgc-button class="button-item" icon="/static/message-icon.png" type="primary" size="superSmall">超小型</cgc-button>
+				<cgc-button class="button-item" type="gray" size="superSmall">文字按钮</cgc-button>
 			</view>
 			<view class="cgc-black cgc-m-b-30">小型按钮</view>
 			<view class="button-demo cgc-flex cgc-row-left cgc-m-b-30 cgc-flex-wrap">
@@ -31,6 +33,7 @@
 				<cgc-button class="button-item" type="judge" size="mini">小型按钮</cgc-button>
 				<cgc-button class="button-item" type="text" size="mini">文字按钮</cgc-button>
 				<cgc-button class="button-item" icon="/static/message-icon.png" type="primary" size="mini">小型按钮</cgc-button>
+				<cgc-button class="button-item" type="gray" size="mini">文字按钮</cgc-button>
 			</view>
 			<view class="cgc-black cgc-m-b-30">辅助按钮</view>
 			<view class="button-demo cgc-flex cgc-row-left cgc-m-b-30 cgc-flex-wrap">
@@ -39,6 +42,7 @@
 				<cgc-button class="button-item" type="judge" size="auxiliary">辅助按钮</cgc-button>
 				<cgc-button class="button-item" type="text" size="auxiliary">文字按钮</cgc-button>
 				<cgc-button class="button-item" icon="/static/message-icon.png" type="primary" size="auxiliary">辅助按钮</cgc-button>
+				<cgc-button class="button-item" type="gray" size="auxiliary">文字按钮</cgc-button>
 			</view>
 			<view class="cgc-black cgc-m-b-30">中型按钮</view>
 			<view class="button-demo cgc-flex cgc-row-left cgc-m-b-30 cgc-flex-wrap">
@@ -47,6 +51,7 @@
 				<cgc-button class="button-item" type="judge" size="medium">中型按钮</cgc-button>
 				<cgc-button class="button-item" type="text" size="medium">文字按钮</cgc-button>
 				<cgc-button class="button-item" icon="/static/message-icon.png" type="primary" size="medium">中型按钮</cgc-button>
+				<cgc-button class="button-item" type="gray" size="medium">文字按钮</cgc-button>
 			</view>
 			<view class="cgc-black cgc-m-b-30">标准按钮</view>
 			<view class="button-demo cgc-flex cgc-row-left cgc-m-b-30 cgc-flex-wrap">
@@ -55,6 +60,7 @@
 				<cgc-button class="button-item" type="judge" size="default">标准按钮</cgc-button>
 				<cgc-button class="button-item" type="text" size="default">文字按钮</cgc-button>
 				<cgc-button class="button-item" icon="/static/message-icon.png" type="primary" size="default">标准按钮</cgc-button>
+				<cgc-button class="button-item" type="gray" size="default">文字按钮</cgc-button>
 			</view>
 			<view class="cgc-black cgc-m-b-30">大型按钮</view>
 			<view class="cgc-m-b-30">

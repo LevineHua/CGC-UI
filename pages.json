@@ -120,6 +120,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/componentD/radio",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "单选框",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentD/checkbox",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "复选框",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentD/upload",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "上传",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "cgc移动端规范",

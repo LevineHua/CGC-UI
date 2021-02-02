@@ -33,9 +33,24 @@
 			<cgc-item-body class="cgc-m-b-30">
 				<cgc-model-list-item @event="openPage('/pages/componentD/stepper')" image="" title="Stepper 计步器"></cgc-model-list-item>
 			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/radio')" image="" title="Radio 单选框"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/checkbox')" image="" title="Checkbox 单选框"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/componentD/upload')" image="" title="Upload 上传"></cgc-model-list-item>
+			</cgc-item-body>
 			<view class="cgc-black cgc-m-b-30">导航组件</view>
 			<cgc-item-body class="cgc-m-b-30">
 				<cgc-model-list-item @event="openPage('/pages/componentB/modelItem')" image="" title="ModelListItem 模块列表"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item image="" title="Header 导航栏"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body class="cgc-m-b-30">
+				<cgc-model-list-item image="" title="TopBar 顶部菜单栏"></cgc-model-list-item>
 			</cgc-item-body>
 			<view class="cgc-black cgc-m-b-30">反馈组件</view>
 			<cgc-item-body class="cgc-m-b-30">

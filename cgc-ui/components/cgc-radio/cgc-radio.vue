@@ -1,6 +1,14 @@
 <template>
-	<view class="cgc-w-h-36">
-		<image :src="isChecked?activeIcon:inactiveIcon" @click="change" class="cgc-w-h-36"></image>
+	<view>
+		<template v-if="type=='button'">
+			<cgc-button size="mini" @click="change" :type="isChecked?buttonActiveStyle:buttonInactiveStyle" :style="buttonStyle">{{label}}</cgc-button>
+		</template>
+		<template v-else>
+			<view class="cgc-flex" @click="change">
+				<image :src="isChecked?activeIcon:inactiveIcon" class="cgc-w-h-36"></image>
+				<slot></slot>
+			</view>
+		</template>
 	</view>
 </template>
 
@@ -44,6 +52,27 @@
 			type: {
 				type: String,
 				default: 'default'
+			},
+			/**
+			 * 按钮型选中样式
+			 */
+			buttonActiveStyle: {
+				type: String,
+				default: 'judge'
+			},
+			/**
+			 * 按钮型未选中样式
+			 */
+			buttonInactiveStyle: {
+				type: String,
+				default: 'primary'
+			},
+			/**
+			 * 按钮样式
+			 */
+			buttonStyle: {
+				type: String,
+				default: ''
 			}
 		},
 		data() {
