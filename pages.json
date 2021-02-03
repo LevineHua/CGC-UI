@@ -147,6 +147,60 @@
             }
             
         }
+        ,{
+            "path" : "pages/componentB/header",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "导航栏",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentB/headers/solidBg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "纯色背景",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentB/headers/gradualBg",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "渐变背景",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentB/headers/button",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "操作按钮",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentB/headers/scrollPage",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "页面滚动改变header背景",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/componentB/headers/complex",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "复杂的header",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "cgc移动端规范",

@@ -47,7 +47,7 @@
 				<cgc-model-list-item @event="openPage('/pages/componentB/modelItem')" image="" title="ModelListItem 模块列表"></cgc-model-list-item>
 			</cgc-item-body>
 			<cgc-item-body class="cgc-m-b-30">
-				<cgc-model-list-item image="" title="Header 导航栏"></cgc-model-list-item>
+				<cgc-model-list-item @event="openPage('/pages/componentB/header')" image="" title="Header 导航栏"></cgc-model-list-item>
 			</cgc-item-body>
 			<cgc-item-body class="cgc-m-b-30">
 				<cgc-model-list-item image="" title="TopBar 顶部菜单栏"></cgc-model-list-item>

@@ -24,16 +24,12 @@
 	// 模块列表项
 	export default {
 		props:{
-			type: {
-				default: () => {
-					
-				}
-			},
 			/**
 			 * 标题
 			 */
 			title: {
-				default: () => {
+				type: String,
+				default() {
 					return ''
 				}
 			},
@@ -41,7 +37,8 @@
 			 * 小标题
 			 */
 			subtitle: {
-				default: () => {
+				type: String,
+				default() {
 					return ''
 				}
 			},
@@ -49,7 +46,8 @@
 			 * 提示标题
 			 */
 			tipTitle: {
-				default: () => {
+				type: String,
+				default() {
 					return ''
 				}
 			},
@@ -57,7 +55,8 @@
 			 * 图标
 			 */
 			image: {
-				default: () => {
+				type: String,
+				default() {
 					return 'https://jdc.jd.com/img/56'
 				}
 			},
@@ -65,7 +64,8 @@
 			 * 图标样式
 			 */
 			imageClass: {
-				default: () => {
+				type: String,
+				default() {
 					return 'cgc-border-radius-large cgc-w-h-56'
 				}
 			}
