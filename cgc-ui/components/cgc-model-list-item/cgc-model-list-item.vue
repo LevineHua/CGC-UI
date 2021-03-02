@@ -57,7 +57,7 @@
 			image: {
 				type: String,
 				default() {
-					return 'https://jdc.jd.com/img/56'
+					return ''
 				}
 			},
 			/**

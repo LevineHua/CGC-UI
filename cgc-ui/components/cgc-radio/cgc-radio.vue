@@ -108,6 +108,7 @@
 			}
 		},
 		methods:{
+			toJSON() {},
 			change() {
 				if(!this.disabled) {
 					this.$emit('input', this.label)

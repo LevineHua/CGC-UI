@@ -4,7 +4,7 @@
 			<block slot="content">标题</block>
 		</cgc-header>
 		<view class="cgc-p-30">
-			<cgc-item-body class="cgc-m-b-30" v-for="(item, index) in 20" :key="index">
+			<cgc-item-body className="cgc-m-b-30" v-for="(item, index) in 20" :key="index">
 				占位内容
 			</cgc-item-body>
 		</view>

@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view :class="className">
 		<slot></slot>
 	</view>
 </template>
@@ -9,6 +9,14 @@
 		name: 'cgcCheckboxGroup',
 		componentName: 'cgcCheckboxGroup',
 		props:{
+			/**
+			 * 类名
+			 * h5和app端支持直接使用class
+			 * 小程序端需使用className
+			 */
+			className: {
+				default: ''
+			},
 			value: {
 				type: Array
 			}
@@ -30,6 +38,9 @@
 				this.broadcast('cgcCheckbox', 'checkboxChange', JSON.stringify(newValue))
 				this.$emit("change", newValue)
 			})
+		},
+		methods:{
+			toJSON() {},
 		}
 	}
 </script>

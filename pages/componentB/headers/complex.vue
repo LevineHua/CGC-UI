@@ -9,21 +9,21 @@
 					<image src="/static/down-icon.png" v-if="selectedCity" class="select-icon"></image>
 				</view>
 			</block>
-			<block slot="content">
-				<view class="header-center" :style="{background: scrollFinally?'rgba(244, 244, 246, 0.5)':'rgba(255, 255, 255, 0.5)'}">
-					搜索门店名称
-					<image src="/static/search-icon.png"></image>
-				</view>
-			</block>
+			<view class="header-center" slot="content" :style="{background: scrollFinally?'rgba(244, 244, 246, 0.5)':'rgba(255, 255, 255, 0.5)'}">
+				搜索门店名称
+				<image src="/static/search-icon.png"></image>
+			</view>
+			<!-- #ifndef MP -->
 			<block slot="right">
 				<view class="header-right" :style="{borderColor: scrollFinally?'#E9E9E9':'transparent'}">
 					<view class="message-num">2</view>
 					<image src="/static/message-icon.png"></image>
 				</view>
 			</block>
+			<!-- #endif -->
 		</cgc-header>
 		<view class="cgc-p-30">
-			<cgc-item-body class="cgc-m-b-30" v-for="(item, index) in 20" :key="index">
+			<cgc-item-body className="cgc-m-b-30" v-for="(item, index) in 20" :key="index">
 				占位内容
 			</cgc-item-body>
 		</view>
@@ -82,6 +82,7 @@
 			contentWidth() {
 				let city = this.selectedCity
 				let strCity = ''
+				// #ifndef MP
 				if(!city){
 					strCity = '定位中'
 					return 540 - 47 - 18 - 40 - 3 + 57 - 26
@@ -93,6 +94,10 @@
 				} else {
 					return 520 - 47 - 80 + 4
 				}
+				// #endif
+				// #ifdef MP
+				return ''
+				// #endif
 			},
 			contentLeft() {
 				let city = this.selectedCity

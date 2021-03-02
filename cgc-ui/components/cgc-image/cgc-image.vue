@@ -1,5 +1,5 @@
 <template>
-	<view class="cgc-image" @tap="onClick" :style="[wrapStyle, backgroundStyle]">
+	<view class="cgc-image" :class="className" @tap="onClick" :style="[wrapStyle, backgroundStyle]">
 		<image 
 			class="cgc-image__image"
 			:src="src"
@@ -18,6 +18,28 @@
 <script>
 	export default {
 		props:{
+			/**
+			 * 类名
+			 * h5和app端支持直接使用class
+			 * 小程序端需使用className
+			 */
+			className: {
+				default: ''
+			},
+			/**
+			 * 宽度
+			 */
+			width: {
+				type: String,
+				default: '100%'
+			},
+			/**
+			 * 高度
+			 */
+			height: {
+				type: String,
+				default: 'auto'
+			},
 			/**
 			 * 过渡时间，单位ms
 			 */
@@ -93,6 +115,8 @@
 		computed: {
 			wrapStyle() {
 				let style = {};
+				style.width = this.width;
+				style.height = this.height;
 				if (this.fade) {
 					style.opacity = this.opacity;
 					style.transition = `opacity ${Number(this.durationTime) / 1000}s ease-in-out`;

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cgc-popup ref="showpopup" type="center">
+		<cgc-popup ref="showpopup" type="center" :maskClick="maskClick">
 			<view class="model-body cgc-w-630 cgc-border-radius-middle cgc-p-30 cgc-rela" :style="[{'background-image': `url(${modalBg})`}]" :class="type">
 				<image src="/static/cgc-ui/close-modal-icon.png" v-if="showClose" class="close-modal-icon cgc-w-h-36 cgc-abso" @click="cancel()"></image>
 				<view class="model-tip-logo cgc-abso" v-if="type!='input'">
@@ -38,6 +38,7 @@
 
 <script>
 	export default {
+		options: { styleIsolation: 'shared' },	// 使在父组件中设置的样式在子组件生效
 		props:{
 			/**
 			 * 弹框类型
@@ -87,17 +88,15 @@
 			 * 取消按钮文案
 			 */
 			cancelBtn: {
-				default: () => {
-					return '取消'
-				}
+				type: [String, Boolean],
+				default: '取消'
 			},
 			/**
 			 * 确认按钮文案
 			 */
 			confirmBtn: {
-				default: () => {
-					return '确定'
-				}
+				type: [String, Boolean],
+				default: '确定'
 			},
 			/**
 			 * 按钮类型
@@ -174,6 +173,13 @@
 				default: () => {
 					return ''
 				}
+			},
+			/**
+			 * 是否允许点击遮罩层关闭弹框
+			 */
+			maskClick: {
+				type: Boolean,
+				default: true
 			}
 		},
 		data() {
@@ -204,7 +210,7 @@
 </script>
 
 <style lang="scss">
-	.uni-popup{
+	/deep/ .cgc-popup{
 		z-index: 99999;
 	}
 	.model-body{

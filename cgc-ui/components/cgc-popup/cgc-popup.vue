@@ -1,8 +1,8 @@
 <template>
-	<view v-if="showPopup" class="uni-popup" @touchmove.stop.prevent="clear">
+	<view v-if="showPopup" class="cgc-popup" @touchmove.stop.prevent="clear">
 		<cgc-transition :mode-class="['fade']" :styles="maskClass" :duration="duration" :show="showTrans" @click="onTap" />
 		<cgc-transition :mode-class="ani" :styles="transClass" :duration="duration" :show="showTrans" @click="onTap">
-			<view class="uni-popup__wrapper-box" @click.stop="clear">
+			<view class="cgc-popup__wrapper-box" @click.stop="clear">
 				<slot />
 			</view>
 		</cgc-transition>
@@ -30,6 +30,7 @@
 		components: {
 			cgcTransition
 		},
+		options: { styleIsolation: 'shared' },	// 使在父组件中设置的样式在子组件生效
 		props: {
 			// 开启动画
 			animation: {
@@ -155,7 +156,7 @@
 	}
 </script>
 <style scoped>
-	.uni-popup {
+	.cgc-popup {
 		position: fixed;
 		/* #ifdef H5 */
 		top: var(--window-top);
@@ -171,7 +172,7 @@
 		/* #endif */
 	}
 
-	.uni-popup__mask {
+	.cgc-popup__mask {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -198,7 +199,7 @@
 		opacity: 1;
 	}
 
-	.uni-popup__wrapper {
+	.cgc-popup__wrapper {
 		/* #ifndef APP-NVUE */
 		display: block;
 		/* #endif */
@@ -234,7 +235,7 @@
 		opacity: 0;
 	}
 
-	.uni-popup__wrapper-box {
+	.cgc-popup__wrapper-box {
 		/* #ifndef APP-NVUE */
 		display: block;
 		/* #endif */

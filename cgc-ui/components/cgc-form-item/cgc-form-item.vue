@@ -58,6 +58,9 @@
 				formItem: this
 			}
 		},
+		options: {
+			styleIsolation: 'shared'
+		},
 		props:{
 			prop: {
 				type: String,
@@ -148,6 +151,7 @@
 		},
 		mounted() {
 			if(this.prop) {
+				// console.log([this])
 				this.dispatch('cgcForm', 'cgc.form.addField', [this]);
 			}
 		},
@@ -163,6 +167,9 @@
 			})
 		},
 		methods:{
+			toJSON() {
+				
+			},
 			/**
 			 * 打开提示框
 			 */

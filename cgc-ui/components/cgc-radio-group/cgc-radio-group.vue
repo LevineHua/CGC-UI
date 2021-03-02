@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view :class="className">
 		<slot></slot>
 	</view>
 </template>
@@ -9,6 +9,14 @@
 		name:'cgcRadioGroup',
 		componentName: 'cgcRadioGroup',
 		props:{
+			/**
+			 * 类名
+			 * h5和app端支持直接使用class
+			 * 小程序端需使用className
+			 */
+			className: {
+				default: ''
+			},
 			value: {
 				type: [Boolean, String, Number]
 			}
@@ -24,6 +32,9 @@
 					this.$emit('change', value)
 				})
 			})
+		},
+		methods:{
+			toJSON() {},
 		}
 	}
 </script>

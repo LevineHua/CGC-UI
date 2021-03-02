@@ -118,6 +118,7 @@
 			}
 		},
 		methods:{
+			toJSON() {},
 			change() {
 				if(!this.disabled) {
 					if(this.parent) {

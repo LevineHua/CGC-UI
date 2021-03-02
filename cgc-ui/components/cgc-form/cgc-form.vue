@@ -10,6 +10,7 @@
 		componentName: 'cgcForm',
 		// 如果为false则在父组件中设置的attribute则不生效
 		inheritAttrs:false,
+		options: { styleIsolation: 'shared' },	// 使在父组件中设置的样式在子组件生效
 		provide() {
 			return {
 				form: this
@@ -93,6 +94,7 @@
 </script>
 
 <style lang="scss" scoped>
+	/* #ifndef MP */
 	/deep/ .cgc-form-item{
 		&:last-child {
 			.cgc-form-item__main{
@@ -102,4 +104,16 @@
 			}
 		}
 	}
+	/* #endif */
+	/* #ifdef MP */
+	/deep/ cgc-form-item{
+		&:last-child {
+			.cgc-form-item__main{
+				&::after{
+					display: none;
+				}
+			}
+		}
+	}
+	/* #endif */
 </style>

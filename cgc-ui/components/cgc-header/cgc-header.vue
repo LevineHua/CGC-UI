@@ -3,11 +3,26 @@
 		<view class="cu-custom"  @click="clickContent" :class="{customFixed:isFixed}" :style="headerHeight">
 			<view class="cu-bar fixed" :style="barHeight">
 				<template v-if="showNav">
+					<!-- #ifndef MP-WEIXIN -->
 					<view class="action" v-if="back" @tap.stop="BackPage">
 						<image src="/static/cgc-ui/white-back-icon.png" v-if="fontColor=='white'" class="back-icon"></image>
 						<image src="/static/cgc-ui/back-icon.png" v-else class="back-icon"></image>
 						<slot name="backText"></slot>
 					</view>
+					<!-- #endif -->
+					<!-- #ifdef MP-WEIXIN -->
+					<view class="menu-button" :style="menuButtonStyle" v-if="back">
+						<view class="menu-button-item" v-if="currentPage>1" @tap.stop="BackPage">
+							<image src="/static/cgc-ui/mp-back-icon.png" class="cgc-w-h-36"></image>
+						</view>
+						<view class="menu-button-hr" v-if="currentPage>1"></view>
+						<view class="menu-button-item" :style="[
+							{width: currentPage>1?'':'100%'}
+						]" @tap.stop="tohome">
+							<image src="/static/cgc-ui/mp-home-icon.png" class="cgc-w-h-36"></image>
+						</view>
+					</view>
+					<!-- #endif -->
 					<view v-else>
 						<slot name="left"></slot>
 					</view>
@@ -56,6 +71,19 @@
 				} else {
 					return `height:${StatusBar}px;padding-top: ${StatusBar}px;background:${this.bgColor};`;
 				}
+			},
+			currentPage() {
+				return getCurrentPages().length
+			},
+			menuButtonStyle() {
+				let menuButtonInfo = uni.getMenuButtonBoundingClientRect()
+				let currentPage = getCurrentPages().length
+				return `
+					height: ${menuButtonInfo.height}px;
+					width: ${currentPage > 1 ? menuButtonInfo.width : menuButtonInfo.height}px;
+					top: ${menuButtonInfo.top}px;
+					left: ${menuButtonInfo.left}px;
+				`
 			}
 		},
 		props: {
@@ -111,11 +139,11 @@
 				
 			},
 			tohome() {
-				// uni.reLaunch({
-				// 	url:'/pages/index/index'
+				// this.$Router.replaceAll({
+				// 	name: 'index'
 				// })
-				this.$Router.replaceAll({
-					name: 'index'
+				uni.switchTab({
+					url:'/pages/example/components'
 				})
 			},
 			clickContent() {
@@ -275,5 +303,26 @@
 		top: 0;
 		z-index: 100;
 		/* box-shadow: 0 1upx 6upx rgba(0, 0, 0, 0.1); */
+	}
+	
+	.menu-button{
+		background:#fff;
+		border-radius: 30rpx;
+		border: 0.5px solid #F4F4F4;
+		display: flex;
+		align-items: center;
+		padding: 0 calc((5 / 144) * 50%);
+		.menu-button-item{
+			width: calc((100% - 0.5px) / 2);
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.menu-button-hr{
+			width: 0.5px;
+			height: 50%;
+			background: #EBECF2;
+		}
 	}
 </style>
