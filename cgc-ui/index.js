@@ -5,14 +5,34 @@ import emitter from './libs/mixins/emitter.js'
 import $parent from './libs/function/$parent.js'
 // 校验
 import test from './libs/function/test.js'
+// 防抖
+import debounce from './libs/function/debounce.js'
+// 节流
+import throttle from './libs/function/throttle.js'
+// 时间格式化
+import timeFormat from './libs/function/timeFormat.js'
 
 const $cgc = {
 	$parent,
-	test
+	test,
+	debounce,
+	throttle,
+	timeFormat,
+	date: timeFormat,	// 别名
 }
 
 const install = Vue => {
 	Vue.mixin(emitter)
+	
+	/**
+	 * 全局过滤器
+	 */
+	Vue.filter('timeFormat', (timestamp, format='Y-m-d H:i') => {
+		return timeFormat(format, timestamp)
+	})
+	Vue.filter('date', (timestamp, format='Y-m-d H:i') => {
+		return timeFormat(format, timestamp)
+	})
 	
 	Vue.prototype.$cgc = $cgc
 	

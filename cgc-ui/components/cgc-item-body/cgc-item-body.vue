@@ -1,5 +1,5 @@
 <template>
-	<view class="cgc-row-between cgc-p-30 cgc-white-bg cgc-border-radius-middle" :class="className">
+	<view class="cgc-row-between cgc-p-30 cgc-white-bg cgc-border-radius-middle" @click="click" :class="className">
 		<slot></slot>
 	</view>
 </template>
@@ -14,6 +14,11 @@
 			 */
 			className: {
 				default: ''
+			}
+		},
+		methods:{
+			click() {
+				this.$emit("click")
 			}
 		}
 	}

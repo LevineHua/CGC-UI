@@ -201,6 +201,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/library/throttle-debounce",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "防抖节流",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/library/timeFormat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "时间格式化",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/library/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "数据校验",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "cgc移动端规范",

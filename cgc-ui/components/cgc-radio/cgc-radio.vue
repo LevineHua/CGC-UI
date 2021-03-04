@@ -1,7 +1,14 @@
 <template>
 	<view>
 		<template v-if="type=='button'">
-			<cgc-button size="mini" @click="change" :type="isChecked?buttonActiveStyle:buttonInactiveStyle" :style="buttonStyle">{{label}}</cgc-button>
+			<cgc-button size="mini" @click="change" :type="isChecked?buttonActiveStyle:buttonInactiveStyle" :style="buttonStyle">
+				<template v-if="$slots">
+					<slot></slot>
+				</template>
+				<template v-else>
+					{{label}}
+				</template>
+			</cgc-button>
 		</template>
 		<template v-else>
 			<view class="cgc-flex" @click="change">
