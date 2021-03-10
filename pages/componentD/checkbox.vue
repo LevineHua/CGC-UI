@@ -19,7 +19,7 @@
 				<cgc-checkbox-group className="cgc-flex cgc-flex-wrap cgc-m-minus-b-20" v-model="like" @change="radioGroupChange">
 					<view class="cgc-flex cgc-m-r-30 cgc-m-b-20" v-for="item in likes" :key="item">
 						<cgc-checkbox :label="item" type="button">
-							<view class="cgc-m-l-20">{{item}}</view>
+							<view>{{item}}</view>
 						</cgc-checkbox>
 					</view>
 				</cgc-checkbox-group>
@@ -50,7 +50,7 @@
 				likes: [
 					"吃",
 					"喝",
-					"嫖",
+					"漂",
 					"前端",
 					"刷微博"
 				],

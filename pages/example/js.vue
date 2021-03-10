@@ -13,6 +13,15 @@
 			<cgc-item-body className="cgc-m-b-30">
 				<cgc-model-list-item @event="openPage('/pages/library/test')" title="Test 数据校验"></cgc-model-list-item>
 			</cgc-item-body>
+			<cgc-item-body className="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/library/getRect')" title="GetRect 获取节点信息"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body className="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/library/system')" title="System 常用系统参数"></cgc-model-list-item>
+			</cgc-item-body>
+			<cgc-item-body className="cgc-m-b-30">
+				<cgc-model-list-item @event="openPage('/pages/library/guid')" title="Guid 全局唯一标识符"></cgc-model-list-item>
+			</cgc-item-body>
 		</view>
 	</view>
 </template>

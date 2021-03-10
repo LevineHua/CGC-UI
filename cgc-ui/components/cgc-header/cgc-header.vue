@@ -40,22 +40,22 @@
 	export default {
 		data() {
 			return {
-				StatusBar: this.StatusBar,
-				CustomBar: this.CustomBar
+				StatusBar: this.$cgc.StatusBar,
+				CustomBar: this.$cgc.CustomBar
 			};
 		},
 		name: 'cgc-header',
 		computed: {
 			style() {
-				var StatusBar= this.StatusBar;
-				var CustomBar= this.CustomBar;
+				var StatusBar= this.$cgc.StatusBar;
+				var CustomBar= this.$cgc.CustomBar;
 				var style = `height:${CustomBar}px;padding-top:${StatusBar}px;`;
 				return style
 			},
 			headerHeight() {
 				// [{height:(showNav?CustomBar:StatusBar) + 'px'}]
-				var StatusBar= this.StatusBar;
-				var CustomBar= this.CustomBar;
+				var StatusBar= this.$cgc.StatusBar;
+				var CustomBar= this.$cgc.CustomBar;
 				if(this.showNav) {
 					return `height:calc(${CustomBar}px + ${this.extraHeight}px);`;
 				} else {
@@ -64,8 +64,8 @@
 			},
 			barHeight() {
 				// [{height:(showNav?CustomBar:StatusBar) + 'px'},{'padding-top':StatusBar + 'px'},{'background':bgColor}]
-				var StatusBar= this.StatusBar;
-				var CustomBar= this.CustomBar;
+				var StatusBar= this.$cgc.StatusBar;
+				var CustomBar= this.$cgc.CustomBar;
 				if(this.showNav) {
 					return `height:calc(${CustomBar}px + ${this.extraHeight}px);padding-top: ${StatusBar}px;background:${this.bgColor};`;
 				} else {

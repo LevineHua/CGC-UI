@@ -57,7 +57,7 @@
 			 * 导航栏高度
 			 */
 			headerHeight() {
-				let CustomBar = this.CustomBar
+				let CustomBar = this.$cgc.CustomBar
 				return CustomBar;
 			},
 			/**

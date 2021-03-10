@@ -1,5 +1,5 @@
 import emitter from './libs/mixins/emitter.js'
-
+import mixin from './libs/mixins/mixin.js'
 // function
 // 获取父组件
 import $parent from './libs/function/$parent.js'
@@ -11,6 +11,10 @@ import debounce from './libs/function/debounce.js'
 import throttle from './libs/function/throttle.js'
 // 时间格式化
 import timeFormat from './libs/function/timeFormat.js'
+// 全局唯一标识符
+import guid from './libs/function/guid.js'
+// 全局唯一标识符
+import toast from './libs/function/toast.js'
 
 const $cgc = {
 	$parent,
@@ -19,10 +23,13 @@ const $cgc = {
 	throttle,
 	timeFormat,
 	date: timeFormat,	// 别名
+	guid,
+	toast,
 }
 
 const install = Vue => {
 	Vue.mixin(emitter)
+	Vue.mixin(mixin)
 	
 	/**
 	 * 全局过滤器
@@ -34,50 +41,43 @@ const install = Vue => {
 		return timeFormat(format, timestamp)
 	})
 	
-	Vue.prototype.$cgc = $cgc
-	
 	/**
 	 * 获取header公共参数
 	 */
 	let system = uni.getSystemInfoSync()
+	let isAndroid, CustomBar, StatusBar;
 	if (system.platform == 'android') {
-		Vue.prototype.isAndroid = true;
+		isAndroid = true;
 	} else {
-		Vue.prototype.isAndroid = false;
+		isAndroid = false;
 	};
-	Vue.prototype.system = system
-	console.log(system)
+	// console.log(system)
 	// #ifndef MP
-	Vue.prototype.StatusBar = system.statusBarHeight;
+	StatusBar = system.statusBarHeight;
 	if (system.platform == 'android') {
-		Vue.prototype.CustomBar = system.statusBarHeight + 50;
+		CustomBar = system.statusBarHeight + 50;
 	} else {
-		Vue.prototype.CustomBar = system.statusBarHeight + 45;
+		CustomBar = system.statusBarHeight + 45;
 	};
 	// #endif
 	
 	// #ifdef MP-WEIXIN
-	Vue.prototype.StatusBar = system.statusBarHeight;
+	StatusBar = system.statusBarHeight;
 	let custom = wx.getMenuButtonBoundingClientRect();
-	Vue.prototype.Custom = custom;
-	Vue.prototype.CustomBar = custom.bottom + custom.top - system.statusBarHeight;
+	CustomBar = custom.bottom + custom.top - system.statusBarHeight;
 	// #endif		
 	
 	// #ifdef MP-ALIPAY
-	Vue.prototype.StatusBar = system.statusBarHeight;
-	Vue.prototype.CustomBar = system.statusBarHeight + system.titleBarHeight;
+	StatusBar = system.statusBarHeight;
+	CustomBar = system.statusBarHeight + system.titleBarHeight;
 	// #endif
 	
-	// #ifdef APP-PLUS
-	Vue.prototype.systemName = plus.os.name
-	// #endif
+	$cgc['isAndroid'] = isAndroid
+	$cgc['CustomBar'] = CustomBar
+	$cgc['StatusBar'] = StatusBar
+	$cgc['system'] = system
 	
-	let modelmes = system.model || '';
-	if(modelmes.indexOf('iPhone X')>=0||modelmes.indexOf('iPhone XR')>=0||modelmes.indexOf('iPhone XS')>=0||modelmes.indexOf('iPhone 12')>=0||modelmes.indexOf('iPhone 11')>=0||modelmes.indexOf('iPhone11')>=0||modelmes.indexOf('iPhone12')>=0||modelmes.indexOf('iPhoneXR')>=0||modelmes.indexOf('iPhoneX')>=0){
-		Vue.prototype.$is_bang = true
-	}else{
-		Vue.prototype.$is_bang = false
-	}
+	Vue.prototype.$cgc = $cgc
 }
 
 export default {

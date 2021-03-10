@@ -228,6 +228,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/library/getRect",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "获取节点信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/library/system",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "system",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/library/guid",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "全局唯一标识符",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTitleText": "cgc移动端规范",

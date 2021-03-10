@@ -99,7 +99,7 @@
 		computed:{
 			isChecked() {
 				// 如果存在cgc-radio-group父组件，则判断父组件的value是否与子组件的label匹配
-				if(this.groupValue) {
+				if(this.groupValue!=='' && this.groupValue!==null) {
 					if(this.groupValue == this.label) {
 						return true
 					} else {
